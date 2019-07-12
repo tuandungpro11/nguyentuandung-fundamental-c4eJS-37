@@ -1,0 +1,13 @@
+\\ draw the window
+color("red");
+for (let i=0;i<=3;i++){
+lt(30);
+fd(50);
+rt(60);
+fd(50);
+rt(120);
+fd(50);
+rt(60);
+fd(50);
+rt(60);
+}
