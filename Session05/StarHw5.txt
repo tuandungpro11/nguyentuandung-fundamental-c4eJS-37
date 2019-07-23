@@ -1,0 +1,9 @@
+clear();
+function star(length){
+rt((180 - ((360/5)*2))/2)
+for (let i=0;i<5;i++){
+fd(length); 
+  rt(180 - (180 - ((360/5)*2)));
+}
+}
+star(50);
