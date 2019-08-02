@@ -50,6 +50,10 @@ document.getElementById("9").addEventListener('click', function(){
     let int = document.getElementById("9").innerText;
     document.getElementById("cal").value += int;
 })
+document.getElementById("0").addEventListener('click', function(){
+    let int = document.getElementById("0").innerText;
+    document.getElementById("cal").value += int;
+})
 document.getElementById("ac").addEventListener('click', function(){
  
     let int = document.getElementById("ac").innerText;
@@ -62,20 +66,6 @@ document.getElementById("del").addEventListener('click', function(){
     document.getElementById("cal").value = x;
 })
 document.getElementById("=").addEventListener('click', function(){
-    function math(x,y,mark){
-        if(mark == "+"){
-            return x+y;
-        }
-        if(mark == "-"){
-            return x-y;
-        }
-        if(mark == "*"){
-            return x*y;
-        }
-        if(mark == ":"){
-            return x/y;
-        }
-    }
     let str =  document.getElementById("cal").value;
     console.log(str);
     let x=[""],d=0;
@@ -110,89 +100,60 @@ document.getElementById("=").addEventListener('click', function(){
  else if (x[i] == "-" & x[i-2] == "-" | (x[i] == "+" & x[i-2] == "-") | (x[i] == null & x[i-2] == "-")){
     tong -= x[i-1];
 }
-
-
-else if ((x[i] == "*" & x[i-2] == null) | (x[i] == "*" & x[i-2] == "+")){ 
-    console.log("Running!");
-    let tongNhan = 1; let arNhan =[]; let dem1 = 0; let dem2 = 0;
-   for (let j = i;j<=x.length;j++){ dem2++;
-       if (x[j] == "+" | x[j] == "-" | j == x.length){
-           dem1 = j; console.log (dem1); 
-           break;
-       }  
-   }
-   console.log(dem2);
-   for (let k = (i-1); k<dem1; k+=2){ console.log("Running!");
-       arNhan.push(x[k]);
-   }
-   console.log(arNhan);
-   for (let k = 0;k<arNhan.length;k++){
-      tongNhan = tongNhan*arNhan[k];
-   }
-   tong += tongNhan
- i += (dem2 -2);  
-}  
-else if (x[i] == "*" & x[i-2] == "-" ){ 
-    console.log("Running!");
-    let tongNhan = 1; let arNhan =[]; let dem1 = 0; let dem2 = 0;
-   for (let j = i;j<=x.length;j++){ dem2++;
-       if (x[j] == "+" | x[j] == "-" | j == x.length){
-           dem1 = j; console.log (dem1); 
-           break;
-       }  
-   }
-   console.log(dem2);
-   for (let k = (i-1); k<dem1; k+=2){ console.log("Running!");
-       arNhan.push(x[k]);
-   }
-   console.log(arNhan);
-   for (let k = 0;k<arNhan.length;k++){
-      tongNhan = tongNhan*arNhan[k];
-   }
-   tong -= tongNhan
- i += (dem2 -2);  
-}  
-
-else if ((x[i] == ":" & x[i-2] == null) | (x[i] == ":" & x[i-2] == "+")){ 
-    console.log("Running!");
+else if ((x[i] == "*" & x[i-2] == null) | (x[i] == "*" & x[i-2] == "+") |  (x[i] == ":" & x[i-2] == "+") | (x[i] == ":" & x[i-2] == null)){ 
      let arNhan =[]; let dem1 = 0; let dem2 = 0;
-   for (let j = i;j<=x.length;j++){ dem2++;
+   for (let j = i;j<=x.length;j++){ 
+       dem2++;
        if (x[j] == "+" | x[j] == "-" | j == x.length){
-           dem1 = j; console.log (dem1); 
+           dem1 = j;  
            break;
        }  
    }
-   console.log(dem2);
-   for (let k = (i-1); k<dem1; k+=2){ console.log("Running!");
+   for (let k = (i-1); k<dem1; k+=1){ 
        arNhan.push(x[k]);
+   } 
+   console.log(arNhan);
+   let tongNhan = arNhan[0]; 
+   for (let k = 1;k<arNhan.length-1;k+=2){ 
+       if (arNhan[k]=="*"){
+      tongNhan = tongNhan*arNhan[k+1]; 
+       }
    }
-   let tongNhan = arNhan[0]; console.log (tongNhan);
-   for (let k = 0;k<arNhan.length-1;k++){
-      tongNhan = tongNhan/arNhan[k+1]; console.log(tongNhan);
-   }
+   for (let k = 1;k<arNhan.length-1;k+=2){ 
+    if (arNhan[k]==":"){
+   tongNhan = tongNhan/arNhan[k+1]; 
+    }
+}
    tong += tongNhan;
  i+= (dem2 -2);  
 }   
-else if ( x[i] == ":" & x[i-2] == "-"){ 
-    console.log("Running!");
+else if ((x[i] == "*" & x[i-2] == "-") |  (x[i] == ":" & x[i-2] == "-")){ 
      let arNhan =[]; let dem1 = 0; let dem2 = 0;
-   for (let j = i;j<=x.length;j++){ dem2++;
+   for (let j = i;j<=x.length;j++){ 
+       dem2++;
        if (x[j] == "+" | x[j] == "-" | j == x.length){
-           dem1 = j; console.log (dem1); 
+           dem1 = j; 
            break;
        }  
    }
-   console.log(dem2);
-   for (let k = (i-1); k<dem1; k+=2){ console.log("Running!");
+   for (let k = (i-1); k<dem1; k+=1){
        arNhan.push(x[k]);
+   } 
+   console.log(arNhan);
+   let tongNhan = arNhan[0]; 
+   for (let k = 1;k<arNhan.length-1;k+=2){ 
+       if (arNhan[k]=="*"){
+      tongNhan = tongNhan*arNhan[k+1]; 
+       }
    }
-   let tongNhan = arNhan[0]; console.log (tongNhan);
-   for (let k = 0;k<arNhan.length-1;k++){
-      tongNhan = tongNhan/arNhan[k+1]; console.log(tongNhan);
-   }
+   for (let k = 1;k<arNhan.length-1;k+=2){ 
+    if (arNhan[k]==":"){
+   tongNhan = tongNhan/arNhan[k+1]; 
+    }
+}
    tong -= tongNhan;
  i+= (dem2 -2);  
 }   
-    }   
-    document.getElementById("cal").value = tong;
+}   
+document.getElementById("cal").value = tong;
 })
