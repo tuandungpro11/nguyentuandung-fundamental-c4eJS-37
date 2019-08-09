@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.post("http://dummy.restapiexample.com/api/v1/employees",
+    {
+      name: "Donald Duck",
+      city: "Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
+</head>
+<body>
+    <div id="employee_salary">
+    </div>
+    <hr>
+    <button>Send an HTTP POST request to a page and get the result back</button>
+   <!-- <button id="button">Enter</button> -->
+    <hr>
+    <ul id="list-employees">
+    </ul>
+    <hr id="hr-1">
+ 
+     <script src="Hw7.js"></script>
+     <style>
+         #list-employees {
+            margin-top: 25px;
+         }
+         #hr-1 {
+            margin-top: 25px;
+         }
+     </style>
+</body>
+</html>
