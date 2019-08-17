@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}   
+#container {
+background-image: url(https://images.wallpaperscraft.com/image/mountains_peak_clouds_145471_1920x1080.jpg);
+height: 100%;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#login-form {
+background-color: rgba(89, 87, 100, 0.589);
+    height: 60%;
+    width: 50%;
+}
+.input {
+ 
+    width: 100%;
+    border-radius: 1rem;
+    border: 0;
+    padding-left: 40px;
+    outline: none;
+}
+.div-input {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 20px;
+}
+.user-login {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.login button {
+    height: 50px;
+    width: 40%;
+    border-radius: 1rem;
+    border: 0;
+    background-color: rgba(122, 103, 103, 0.829);
+    color: bisque;
+    font-size: 20px;
+
+}
+.link {
+display: flex;
+justify-content: center;
+margin-bottom: 50px;
+margin-top: 20px;
+}
+h1 {
+    margin: 0px;
+    text-align: center;
+}
+a {
+    color: antiquewhite;
+    text-decoration: none;
+}
+button:hover {
+    background: black;
+    cursor: pointer;
+    color: brown;
+}
+.icon {
+    position: absolute;
+  top:15px;
+  left:15px; 
+
+
+  
+}
+.block {
+    position: relative;
+
+    width: 70%;
+    display: flex;
+    height: 50px;
+    margin-top: 20px;   
+}
